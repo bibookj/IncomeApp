@@ -12,40 +12,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="THE INCOME APP"
-        android:textColor="@color/colorDarkBlue"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:textSize="40sp"
+        style="@style/titleTextView"
         />
 
     <TextView
         android:id="@+id/txtLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/whiteTextView"
         android:text="Login" />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
         style="@style/roundedEditText"
         android:id="@+id/editLogin"
         />
 
     <TextView
         android:id="@+id/txtPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/whiteTextView"
         android:text="Password" />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
         style="@style/roundedEditText"
         android:id="@+id/editPassword"
         />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="LOGIN"
         style="@style/whiteTransparentButton"
         />

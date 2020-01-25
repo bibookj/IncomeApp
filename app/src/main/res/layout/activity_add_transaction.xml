@@ -10,46 +10,32 @@
 
     <TextView
         android:id="@+id/txtAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/whiteTextView"
         android:layout_marginTop="120dp"
         android:text="Amount" />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
         style="@style/roundedEditText"
         android:id="@+id/editAmount"
         />
 
     <TextView
         android:id="@+id/txtLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/whiteTextView"
         android:text="Category" />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
         style="@style/roundedEditText"
         android:id="@+id/editCategory"
         />
 
     <TextView
         android:id="@+id/txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/whiteTextView"
         android:text="Date" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
         android:text="Pick a date"
         style="@style/roundedTextView"
         android:id="@+id/txtDate"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="ADD"
         android:id="@+id/btnAdd"
         style="@style/whiteTransparentButton"
