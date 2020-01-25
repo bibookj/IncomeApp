@@ -12,18 +12,13 @@
         android:id="@+id/txtAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
-        android:textColor="@color/colorWhite"
+        style="@style/whiteTextView"
+        android:layout_marginTop="120dp"
         android:text="Amount" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/login_edit_text"
+        style="@style/roundedEditText"
         android:id="@+id/editAmount"
         />
 
@@ -31,18 +26,12 @@
         android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/colorWhite"
+        style="@style/whiteTextView"
         android:text="Category" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/login_edit_text"
+        style="@style/roundedEditText"
         android:id="@+id/editCategory"
         />
 
@@ -50,34 +39,20 @@
         android:id="@+id/txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textColor="@color/colorWhite"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
+        style="@style/whiteTextView"
         android:text="Date" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Pick a date"
-        android:layout_marginLeft="50dp"
-        android:textSize="30sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/colorWhite"
-        android:gravity="center"
-        android:background="@drawable/login_edit_text"
+        style="@style/roundedTextView"
         android:id="@+id/txtDate"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD"
         android:id="@+id/btnAdd"
-        android:textSize="50sp"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/login_edit_text"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        style="@style/whiteTransparentButton"
         />
 
 </LinearLayout>
