@@ -35,6 +35,7 @@
     <Button
         android:text="LOGIN"
         style="@style/whiteTransparentButton"
+        android:id=""
         />
 
 </LinearLayout>
