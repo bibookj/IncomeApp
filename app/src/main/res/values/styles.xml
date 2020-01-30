@@ -53,6 +53,13 @@
         <item name="android:layout_marginTop">50dp</item>
     </style>
 
+    <style name="whiteSemiTransparentButton" parent="controlBaseTile">
+        <item name="android:background">@drawable/semi_transparent_button</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_width">150dp</item>
+        <item name="android:textColor">@color/colorBrownForText</item>
+    </style>
+
     <style name="titleTextView" parent="controlBaseTile">
         <item name="android:textColor">@color/colorDarkBlue</item>
         <item name="android:layout_marginTop">100dp</item>
