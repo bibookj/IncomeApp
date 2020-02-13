@@ -32,6 +32,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginLeft="10dp"
         android:drawableBottom="@drawable/trending_up_icon"
+        android:id="@+id/btnIncome"
         android:text="Income">
     </Button>
     <Button
@@ -41,6 +42,7 @@
         android:layout_row="1"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
+        android:id="@+id/btnExpenses"
         android:drawableBottom="@drawable/trending_down_icon"
         android:text="Expenses">
     </Button>

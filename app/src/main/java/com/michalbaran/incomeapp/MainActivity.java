@@ -15,6 +15,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button addTransactiontBtn;
+    Button incomeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddTransactionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        incomeBtn=findViewById(R.id.btnIncome);
+        incomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IncomeActivity.class);
                 startActivity(intent);
             }
         });
