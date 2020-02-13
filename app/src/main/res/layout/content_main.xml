@@ -18,41 +18,42 @@
         android:gravity="center"
         android:layout_column="0"
         android:layout_row="0"
-        android:layout_marginTop="120dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/btnAddTransaction"
-        android:drawableBottom="@drawable/add_icon"
-        android:text="ADD">
+        android:drawableBottom="@drawable/account_balance_icon"
+        android:text="Wallet">
     </Button>
     <Button
         style="@style/whiteSemiTransparentButton"
         android:gravity="center"
         android:layout_column="1"
         android:layout_row="0"
-        android:layout_marginTop="120dp"
-        android:layout_centerHorizontal="true"
-        android:drawableBottom="@drawable/add_icon"
-        android:text="ADD">
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:drawableBottom="@drawable/trending_up_icon"
+        android:text="Income">
     </Button>
     <Button
         style="@style/whiteSemiTransparentButton"
         android:gravity="center"
         android:layout_column="0"
         android:layout_row="1"
-        android:layout_marginTop="120dp"
-        android:layout_centerHorizontal="true"
-        android:drawableBottom="@drawable/add_icon"
-        android:text="ADD">
+        android:layout_marginRight="10dp"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:drawableBottom="@drawable/trending_down_icon"
+        android:text="Expenses">
     </Button>
     <Button
         style="@style/whiteSemiTransparentButton"
         android:gravity="center"
         android:layout_column="1"
         android:layout_row="1"
-        android:layout_marginTop="120dp"
-        android:layout_centerHorizontal="true"
-        android:drawableBottom="@drawable/add_icon"
-        android:text="ADD">
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:drawableBottom="@drawable/timeline_icon"
+        android:text="Preview">
     </Button>
 
 
