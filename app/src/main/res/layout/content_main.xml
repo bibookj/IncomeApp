@@ -4,58 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    android:background="@drawable/stoinks"
     android:columnCount="2"
-    android:rowCount="2"
     android:paddingHorizontal="40dp"
     android:paddingVertical="30dp"
-    android:background="@drawable/stoinks"
+    android:rowCount="2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
     <Button
-        style="@style/whiteSemiTransparentButton"
-        android:gravity="center"
-        android:layout_column="0"
-        android:layout_row="0"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="10dp"
         android:id="@+id/btnAddTransaction"
-        android:drawableBottom="@drawable/account_balance_icon"
-        android:text="Wallet">
-    </Button>
-    <Button
         style="@style/whiteSemiTransparentButton"
-        android:gravity="center"
-        android:layout_column="1"
         android:layout_row="0"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"
-        android:drawableBottom="@drawable/trending_up_icon"
-        android:id="@+id/btnIncome"
-        android:text="Income">
-    </Button>
-    <Button
-        style="@style/whiteSemiTransparentButton"
-        android:gravity="center"
         android:layout_column="0"
-        android:layout_row="1"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:drawableBottom="@drawable/account_balance_icon"
+        android:gravity="center"
+        android:text="Wallet"></Button>
+
+    <Button
+        android:id="@+id/btnIncome"
+        style="@style/whiteSemiTransparentButton"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:drawableBottom="@drawable/trending_up_icon"
+        android:gravity="center"
+        android:text="Income"></Button>
+
+    <Button
         android:id="@+id/btnExpenses"
+        style="@style/whiteSemiTransparentButton"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:drawableBottom="@drawable/trending_down_icon"
-        android:text="Expenses">
-    </Button>
+        android:gravity="center"
+        android:text="Expenses"></Button>
+
     <Button
         style="@style/whiteSemiTransparentButton"
-        android:gravity="center"
-        android:layout_column="1"
         android:layout_row="1"
+        android:layout_column="1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:drawableBottom="@drawable/timeline_icon"
-        android:text="Preview">
-    </Button>
+        android:gravity="center"
+        android:text="Preview"></Button>
 
 
 </GridLayout>

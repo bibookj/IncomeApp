@@ -1,5 +1,6 @@
 package com.michalbaran.incomeapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,13 +13,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
 public class IncomeActivity extends AppCompatActivity {
+
+    static final int ADD_TRANSACTION_REQUEST_CODE = 1;
+    public List<Income> incomeList;
+    public RecyclerView recyclerView;
+    public IncomeViewAdapter incomeViewAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +41,50 @@ public class IncomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(IncomeActivity.this, AddTransactionActivity.class);
+                intent.putExtra("ACTIVITY_MODE","+");
+                startActivityForResult(intent, ADD_TRANSACTION_REQUEST_CODE);
             }
         });
 
-        List<Income> incomeList;
-        incomeList = new ArrayList<>();
-        incomeList.add(new Income("Food", Calendar.getInstance().getTime(),21.5));
-        incomeList.add(new Income("Travel", Calendar.getInstance().getTime(),22.1));
-        incomeList.add(new Income("Ship", Calendar.getInstance().getTime(),2000000.0));
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setAdapter(new IncomeViewAdapter(this, incomeList));
+        incomeList = new ArrayList<>();
+        incomeList.add(new Income("Food", Calendar.getInstance().getTime(), 21.5));
+        incomeList.add(new Income("Travel", Calendar.getInstance().getTime(), 22.1));
+        incomeList.add(new Income("Ship", Calendar.getInstance().getTime(), 2000000.0));
+
+        recyclerView = findViewById(R.id.recycler_view);
+        incomeViewAdapter = new IncomeViewAdapter(this, incomeList);
+        recyclerView.setAdapter(incomeViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check if the request code is same as what is passed  here it is 2
+        if (requestCode == ADD_TRANSACTION_REQUEST_CODE) {
+
+            if (resultCode == RESULT_OK) {
+
+                String date = data.getStringExtra("DATE");
+                Double amount = data.getDoubleExtra("AMOUNT",0);
+                String category = data.getStringExtra("CATEGORY");
+                Date date1=Calendar.getInstance().getTime();
+                try {
+                    date1 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                incomeList.add (new Income(category, date1, amount));
+
+                incomeViewAdapter.notifyDataSetChanged();
+
+            }
+            //String message=data.getStringExtra("MESSAGE");
+            //textView1.setText(message);
+        }
     }
 
 }
