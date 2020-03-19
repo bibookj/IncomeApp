@@ -53,7 +53,7 @@ public class ExpensesActivity extends AppCompatActivity {
         expensesList.add(new Expenses("Cat", Calendar.getInstance().getTime(), 2.50));
         expensesList.add(new Expenses("Food", Calendar.getInstance().getTime(), 17.4));
 
-        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.expenses_recycler_view);
         expensesViewAdapter = new ExpensesViewAdapter(this, expensesList);
         recyclerView.setAdapter(expensesViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
