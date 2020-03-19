@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.michalbaran.incomeapp.database.Income;
+import com.reactiveandroid.query.Select;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -48,10 +49,11 @@ public class IncomeActivity extends AppCompatActivity {
         });
 
 
-        incomeList = new ArrayList<>();
-        incomeList.add(new Income("Food", Calendar.getInstance().getTime(), 21.5));
+        incomeList = Select.from(Income.class).fetch();
+
+        /*incomeList.add(new Income("Food", Calendar.getInstance().getTime(), 21.5));
         incomeList.add(new Income("Travel", Calendar.getInstance().getTime(), 22.1));
-        incomeList.add(new Income("Ship", Calendar.getInstance().getTime(), 2000000.0));
+        incomeList.add(new Income("Ship", Calendar.getInstance().getTime(), 2000000.0));*/
 
         recyclerView = findViewById(R.id.recycler_view);
         incomeViewAdapter = new IncomeViewAdapter(this, incomeList);
@@ -77,7 +79,9 @@ public class IncomeActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                incomeList.add (new Income(category, date1, amount));
+                Income income = new Income(category, date1, amount);
+                income.save();
+                incomeList.add (income);
 
                 incomeViewAdapter.notifyDataSetChanged();
 

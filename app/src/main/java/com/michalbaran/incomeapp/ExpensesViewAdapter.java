@@ -9,8 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.michalbaran.incomeapp.database.Expenses;
+import com.michalbaran.incomeapp.service.IWalletService;
+import com.michalbaran.incomeapp.service.WalletService;
+
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;

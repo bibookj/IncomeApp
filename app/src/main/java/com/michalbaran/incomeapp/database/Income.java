@@ -1,20 +1,33 @@
-package com.michalbaran.incomeapp;
+package com.michalbaran.incomeapp.database;
+
+import com.reactiveandroid.Model;
+import com.reactiveandroid.annotation.Column;
+import com.reactiveandroid.annotation.PrimaryKey;
+import com.reactiveandroid.annotation.Table;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class Expenses {
+@Table(name = "Incomes", database = AppDatabase.class)
 
+public class Income extends Model {
+
+    @PrimaryKey
+    private Long id;
+
+    @Column
     private String category;
+    @Column
     private Date date;
+    @Column
     private Double amount;
 
-    public Expenses() {
+    public Income()  {
     }
 
-    public Expenses(String category, Date date, Double amount) {
+    public Income(String category, Date date, Double amount)  {
         this.category = category;
         this.date = date;
         this.amount = amount;
