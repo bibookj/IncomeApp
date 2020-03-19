@@ -21,18 +21,18 @@ import java.util.Date;
 import java.util.List;
 
 
-public class IncomeActivity extends AppCompatActivity {
+public class ExpensesActivity extends AppCompatActivity {
 
     static final int ADD_TRANSACTION_REQUEST_CODE = 1;
-    public List<Income> incomeList;
+    public List<Expenses> expensesList;
     public RecyclerView recyclerView;
-    public IncomeViewAdapter incomeViewAdapter;
+    public ExpensesViewAdapter expensesViewAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_income);
+        setContentView(R.layout.activity_expenses);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -41,21 +41,21 @@ public class IncomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IncomeActivity.this, AddTransactionActivity.class);
-                intent.putExtra("ACTIVITY_MODE",'+');
+                Intent intent = new Intent(ExpensesActivity.this, AddTransactionActivity.class);
+                intent.putExtra("ACTIVITY_MODE",'-');
                 startActivityForResult(intent, ADD_TRANSACTION_REQUEST_CODE);
             }
         });
 
 
-        incomeList = new ArrayList<>();
-        incomeList.add(new Income("Food", Calendar.getInstance().getTime(), 21.5));
-        incomeList.add(new Income("Travel", Calendar.getInstance().getTime(), 22.1));
-        incomeList.add(new Income("Ship", Calendar.getInstance().getTime(), 2000000.0));
+        expensesList = new ArrayList<>();
+        expensesList.add(new Expenses("Dog", Calendar.getInstance().getTime(), 13.5));
+        expensesList.add(new Expenses("Cat", Calendar.getInstance().getTime(), 2.50));
+        expensesList.add(new Expenses("Food", Calendar.getInstance().getTime(), 17.4));
 
         recyclerView = findViewById(R.id.recycler_view);
-        incomeViewAdapter = new IncomeViewAdapter(this, incomeList);
-        recyclerView.setAdapter(incomeViewAdapter);
+        expensesViewAdapter = new ExpensesViewAdapter(this, expensesList);
+        recyclerView.setAdapter(expensesViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
@@ -77,9 +77,9 @@ public class IncomeActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                incomeList.add (new Income(category, date1, amount));
+                expensesList.add (new Expenses(category, date1, amount));
 
-                incomeViewAdapter.notifyDataSetChanged();
+                expensesViewAdapter.notifyDataSetChanged();
 
             }
             //String message=data.getStringExtra("MESSAGE");

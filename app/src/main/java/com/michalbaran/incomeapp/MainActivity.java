@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button addTransactiontBtn;
     Button incomeBtn;
+    Button expensesBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, IncomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        expensesBtn=findViewById(R.id.btnExpenses);
+        expensesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ExpensesActivity.class);
                 startActivity(intent);
             }
         });

@@ -16,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -27,7 +28,7 @@ public class AddTransactionActivity extends AppCompatActivity {
     LinearLayout layout;
     Context context;
     EditText amountEdit, categoryEdit;
-    String activityMode;
+    char activityMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,10 @@ public class AddTransactionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_transaction);
 
         Intent intent = getIntent();
-        if (activityMode != null) {
-            activityMode = intent.getStringExtra("ACTIVITY_MODE");
-        }
-        else activityMode = "0";
+        //if (activityMode != null) {
+            activityMode = intent.getCharExtra("ACTIVITY_MODE",'0');
+        //}
+        // activityMode = '0';
 
         plusBtn = findViewById(R.id.btnPlus);
         minusBtn = findViewById(R.id.btnMinus);
@@ -46,7 +47,7 @@ public class AddTransactionActivity extends AppCompatActivity {
         context = this;
 
         switch (activityMode) {
-            case "+": {
+            case '+': {
 
                 layout.setBackground(ContextCompat.getDrawable(context, R.drawable.gradient_background_green));
                 plusBtn.setVisibility(View.GONE);
@@ -54,7 +55,7 @@ public class AddTransactionActivity extends AppCompatActivity {
 
                 break;
             }
-            case "-": {
+            case '-': {
                 layout.setBackground(ContextCompat.getDrawable(context, R.drawable.gradient_background_red));
                 plusBtn.setVisibility(View.GONE);
                 minusBtn.setVisibility(View.GONE);
@@ -80,6 +81,8 @@ public class AddTransactionActivity extends AppCompatActivity {
                 break;
             }
         }
+
+        //Toast.makeText(this, activityMode, Toast.LENGTH_SHORT).show();
 
         amountEdit = findViewById(R.id.editAmount);
         categoryEdit = findViewById(R.id.editCategory);

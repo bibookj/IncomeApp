@@ -2,4 +2,5 @@
     <string name="app_name">IncomeApp</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_income">IncomeActivity</string>
+    <string name="title_activity_expenses">ExpensesActivity</string>
 </resources>
