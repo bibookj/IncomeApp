@@ -84,6 +84,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AccountBalanceTextView">
+        <item name="android:background">@drawable/semi_transparent_button</item>
+    </style>
+    
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

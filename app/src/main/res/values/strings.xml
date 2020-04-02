@@ -3,4 +3,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_income">IncomeActivity</string>
     <string name="title_activity_expenses">ExpensesActivity</string>
+    <string name="title_activity_wallet">WalletActivity</string>
 </resources>
