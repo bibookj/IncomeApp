@@ -14,7 +14,7 @@
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:id="@+id/btnAddTransaction"
+        android:id="@+id/btnWallet"
         style="@style/whiteSemiTransparentButton"
         android:layout_row="0"
         android:layout_column="0"

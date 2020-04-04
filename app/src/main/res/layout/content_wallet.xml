@@ -13,13 +13,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wallet"
+        android:text="WALLET"
+        android:textSize="60dp"
+        android:layout_marginTop="50dp"
         style="@style/transparentTextView"
         android:layout_gravity="center"
         />
 
     <TextView
-        style="@style/roundedTextView"/>
+        style="@style/whiteSemiTransparentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_gravity="center"
+        android:text="10020.99"
+        android:id="@+id/txtAccountBalance"
+        android:textSize="70sp"
+        />
 
 
 </LinearLayout>
