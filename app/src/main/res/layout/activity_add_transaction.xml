@@ -44,7 +44,7 @@
     <EditText
         style="@style/roundedEditText"
         android:id="@+id/editAmount"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         />
 
     <TextView
