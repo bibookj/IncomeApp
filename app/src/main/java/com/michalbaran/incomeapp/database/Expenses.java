@@ -1,5 +1,6 @@
 package com.michalbaran.incomeapp.database;
 
+import com.reactiveandroid.Model;
 import com.reactiveandroid.annotation.Column;
 import com.reactiveandroid.annotation.PrimaryKey;
 import com.reactiveandroid.annotation.Table;
@@ -11,7 +12,7 @@ import java.util.TimeZone;
 
 @Table(name = "Expenses", database = AppDatabase.class)
 
-public class Expenses {
+public class Expenses extends Model{
 
     @PrimaryKey private Long id;
 
