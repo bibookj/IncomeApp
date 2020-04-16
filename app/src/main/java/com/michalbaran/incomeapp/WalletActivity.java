@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 public class WalletActivity extends AppCompatActivity {
 
-    TextView txtAccountBalance;
-    Float balance;
+    TextView txtAccountBalance, txtTotalIncome, txtTotalExpenses;
+    Float balance, totalIncome, totalOutcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,14 @@ public class WalletActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         txtAccountBalance = findViewById(R.id.txtAccountBalance);
-        balance = Select.from(Income.class).sum("amount") - Select.from(Expenses.class).sum("amount");
+        txtTotalIncome = findViewById(R.id.txtTotalIncome);
+        txtTotalExpenses = findViewById(R.id.txtTotalExpenses);
+        totalIncome = Select.from(Income.class).sum("amount");
+        totalOutcome = Select.from(Expenses.class).sum("amount");
+        balance =  totalIncome - totalOutcome;
         txtAccountBalance.setText(balance.toString());
+        txtTotalIncome.setText(totalIncome.toString());
+        txtTotalExpenses.setText(totalOutcome.toString());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

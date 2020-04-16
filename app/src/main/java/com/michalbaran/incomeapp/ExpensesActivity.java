@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.michalbaran.incomeapp.database.Expenses;
+import com.reactiveandroid.query.Select;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -48,10 +49,12 @@ public class ExpensesActivity extends AppCompatActivity {
         });
 
 
-        expensesList = new ArrayList<>();
-        expensesList.add(new Expenses("Dog", Calendar.getInstance().getTime(), 13.5));
+        //expensesList = new ArrayList<>();
+        /*expensesList.add(new Expenses("Dog", Calendar.getInstance().getTime(), 13.5));
         expensesList.add(new Expenses("Cat", Calendar.getInstance().getTime(), 2.50));
-        expensesList.add(new Expenses("Food", Calendar.getInstance().getTime(), 17.4));
+        expensesList.add(new Expenses("Food", Calendar.getInstance().getTime(), 17.4));*/
+
+        expensesList = Select.from(Expenses.class).fetch();
 
         recyclerView = findViewById(R.id.expenses_recycler_view);
         expensesViewAdapter = new ExpensesViewAdapter(this, expensesList);
@@ -77,7 +80,9 @@ public class ExpensesActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                expensesList.add (new Expenses(category, date1, amount));
+                Expenses expenses = new Expenses(category, date1, amount);
+                expenses.save();
+                expensesList.add (expenses);
 
                 expensesViewAdapter.notifyDataSetChanged();
 

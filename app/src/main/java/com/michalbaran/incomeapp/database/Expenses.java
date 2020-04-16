@@ -55,4 +55,5 @@ public class Expenses {
     public String getCategory() {
         return category;
     }
+
 }
