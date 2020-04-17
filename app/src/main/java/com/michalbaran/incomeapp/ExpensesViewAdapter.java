@@ -47,6 +47,7 @@ public class ExpensesViewAdapter extends RecyclerView.Adapter<ExpensesViewAdapte
         holder.category.setText(expenses.getCategory());
         holder.date.setText(formatDate(expenses.getDate()));
         holder.amount.setText(expenses.getAmount().toString());
+        holder.id=expenses.getId();
     }
 
     @Override
@@ -57,6 +58,8 @@ public class ExpensesViewAdapter extends RecyclerView.Adapter<ExpensesViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView category, date, amount;
+
+        private Long id;
 
 
         public ViewHolder(@NonNull View itemView) {

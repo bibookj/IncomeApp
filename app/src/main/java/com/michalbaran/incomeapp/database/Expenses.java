@@ -57,4 +57,8 @@ public class Expenses extends Model{
         return category;
     }
 
+    public Long getId() {
+        return id;
+    }
+
 }
