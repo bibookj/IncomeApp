@@ -2,73 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutAddTransaction"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/layoutAddTransaction"
     android:background="@drawable/gradient_background_blue"
+    android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            style="@style/whiteTransparentButton"
-            android:layout_margin="20dp"
-            android:text="+"
-            android:id="@+id/btnPlus"
-            android:padding="0dp"
-            android:textSize="80sp"/>
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            style="@style/whiteTransparentButton"
-            android:layout_margin="20dp"
-            android:id="@+id/btnMinus"
-            android:text="-"
-            android:padding="0dp"
-            android:textSize="80sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtAmount"
-        style="@style/whiteTextView"
-        android:layout_marginTop="20dp"
-        android:text="Amount" />
-    <EditText
-        style="@style/roundedEditText"
-        android:id="@+id/editAmount"
-        android:inputType="numberDecimal"
-        />
+                <Button
+                    android:id="@+id/btnPlus"
+                    style="@style/whiteTransparentButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="20dp"
+                    android:padding="0dp"
+                    android:text="+"
+                    android:textSize="80sp" />
 
-    <TextView
-        android:id="@+id/txtLogin"
-        style="@style/whiteTextView"
-        android:text="Category" />
-    <EditText
-        style="@style/roundedEditText"
-        android:id="@+id/editCategory"
-        />
+                <Button
+                    android:id="@+id/btnMinus"
+                    style="@style/whiteTransparentButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="20dp"
+                    android:padding="0dp"
+                    android:text="-"
+                    android:textSize="80sp" />
 
-    <TextView
-        android:id="@+id/txt"
-        style="@style/whiteTextView"
-        android:text="Date" />
-    <TextView
-        android:text="Pick a date"
-        style="@style/roundedTextView"
-        android:layout_marginTop="15dp"
-        android:id="@+id/txtDate"/>
-    <Button
-        android:text="ADD"
-        android:id="@+id/btnAdd"
-        style="@style/whiteTransparentButton"
-        />
+            </LinearLayout>
 
+            <TextView
+                android:id="@+id/txtAmount"
+                style="@style/whiteTextView"
+                android:layout_marginTop="20dp"
+                android:text="Amount" />
+
+            <EditText
+                android:id="@+id/editAmount"
+                style="@style/roundedEditText"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/txtLogin"
+                style="@style/whiteTextView"
+                android:text="Category" />
+
+            <EditText
+                android:id="@+id/editCategory"
+                style="@style/roundedEditText" />
+
+            <TextView
+                android:id="@+id/txt"
+                style="@style/whiteTextView"
+                android:text="Date" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                style="@style/roundedTextView"
+                android:layout_marginTop="15dp"
+                android:text="Pick a date" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                style="@style/whiteTransparentButton"
+                android:text="ADD" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
