@@ -8,4 +8,5 @@
     <color name="colorBrownForText">#5F4E34</color>
     <color name="colorDarkGreen">#164012</color>
     <color name="colorRed">#952121</color>
+    <color name="colorLightGray">#c8C4C4C4</color>
 </resources>
