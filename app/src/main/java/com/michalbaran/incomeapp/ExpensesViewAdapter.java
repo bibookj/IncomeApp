@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.michalbaran.incomeapp.database.Expenses;
 import com.michalbaran.incomeapp.service.IWalletService;
 import com.michalbaran.incomeapp.service.WalletService;
+import com.reactiveandroid.query.Delete;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,7 +49,21 @@ public class ExpensesViewAdapter extends RecyclerView.Adapter<ExpensesViewAdapte
         holder.category.setText(expenses.getCategory());
         holder.date.setText(formatDate(expenses.getDate()));
         holder.amount.setText(expenses.getAmount().toString());
-        holder.id=expenses.getId();
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Delete.from(Expenses.class).where("id = ?", expenses.getId()).execute();
+                notifyDataSetChanged();
+
+            }
+        });
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -58,8 +74,8 @@ public class ExpensesViewAdapter extends RecyclerView.Adapter<ExpensesViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView category, date, amount;
+        private ImageButton edit,delete;
 
-        private Long id;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -67,6 +83,8 @@ public class ExpensesViewAdapter extends RecyclerView.Adapter<ExpensesViewAdapte
             this.category = itemView.findViewById(R.id.txtExpensesRecyclerCategory);
             this.date = itemView.findViewById(R.id.txtExpensesRecyclerDate);
             this.amount = itemView.findViewById(R.id.txtExpensesRecyclerAmount);
+            this.edit = itemView.findViewById(R.id.btnExpensesRecyclerEdit);
+            this.delete = itemView.findViewById(R.id.btnExpensesRecyclerDelete);
 
         }
     }
