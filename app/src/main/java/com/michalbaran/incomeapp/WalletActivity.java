@@ -24,8 +24,8 @@ public class WalletActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         txtAccountBalance = findViewById(R.id.txtAccountBalance);
         txtTotalIncome = findViewById(R.id.txtTotalIncome);
