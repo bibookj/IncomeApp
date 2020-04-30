@@ -1,5 +1,6 @@
 package com.michalbaran.incomeapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.Button;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,8 +30,10 @@ public class ExpensesActivity extends AppCompatActivity {
     public List<Expenses> expensesList;
     public RecyclerView recyclerView;
     public ExpensesViewAdapter expensesViewAdapter;
+    Button btnDelete, btnEdit;
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,14 @@ public class ExpensesActivity extends AppCompatActivity {
         expensesViewAdapter = new ExpensesViewAdapter(this, expensesList);
         recyclerView.setAdapter(expensesViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        btnDelete=findViewById(R.id.btnExpensesRecyclerDelete);
+        btnEdit=findViewById(R.id.btnExpensesRecyclerEdit);
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expensesViewAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

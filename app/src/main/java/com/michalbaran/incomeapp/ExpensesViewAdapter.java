@@ -14,6 +14,7 @@ import com.michalbaran.incomeapp.database.Expenses;
 import com.michalbaran.incomeapp.service.IWalletService;
 import com.michalbaran.incomeapp.service.WalletService;
 import com.reactiveandroid.query.Delete;
+import com.reactiveandroid.query.Update;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,17 +55,18 @@ public class ExpensesViewAdapter extends RecyclerView.Adapter<ExpensesViewAdapte
             @Override
             public void onClick(View v) {
                 Delete.from(Expenses.class).where("id = ?", expenses.getId()).execute();
-                notifyDataSetChanged();
 
             }
         });
-        holder.edit.setOnClickListener(new View.OnClickListener() {
+        /*holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Update.table(Expenses.class).set("title = ", "New title").where("id = ?", 1).execute();
             }
-        });
+        });*/
     }
+
+
 
     @Override
     public int getItemCount() {
