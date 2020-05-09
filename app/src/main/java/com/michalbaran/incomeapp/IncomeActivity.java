@@ -79,7 +79,7 @@ public class IncomeActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Income income = new Income(category, date1, amount);
+                Income income = new Income(1l, date1, amount);
                 income.save();
                 incomeList.add (income);
 

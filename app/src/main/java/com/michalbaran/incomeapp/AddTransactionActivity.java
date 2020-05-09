@@ -21,7 +21,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.michalbaran.incomeapp.database.Category;
+import com.reactiveandroid.query.Select;
+
 import java.util.Calendar;
+import java.util.List;
 
 public class AddTransactionActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -34,6 +38,7 @@ public class AddTransactionActivity extends AppCompatActivity implements Adapter
     char activityMode;
     Spinner categorySpinner;
     String categoryTxt;
+    List categoryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +96,17 @@ public class AddTransactionActivity extends AppCompatActivity implements Adapter
 
         amountEdit = findViewById(R.id.editAmount);
         //categoryEdit = findViewById(R.id.editCategory);
+
+
         categorySpinner = findViewById(R.id.SpinnerCategory);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.SpinnerArray, android.R.layout.simple_spinner_item);
+        categoryList = Select.from(Category.class).fetch();
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFrom(this,categoryList, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,categoryList);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapter);
         categorySpinner.setOnItemSelectedListener(this);
+
 
         txtDate = findViewById(R.id.txtDate);
         txtDate.setOnClickListener(new View.OnClickListener() {

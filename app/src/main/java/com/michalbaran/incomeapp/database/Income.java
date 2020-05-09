@@ -18,7 +18,7 @@ public class Income extends Model {
     private Long id;
 
     @Column
-    private String category;
+    private Long category_id;
     @Column
     private Date date;
     @Column
@@ -27,8 +27,8 @@ public class Income extends Model {
     public Income()  {
     }
 
-    public Income(String category, Date date, Double amount)  {
-        this.category = category;
+    public Income(Long category_id, Date date, Double amount)  {
+        this.category_id = category_id;
         this.date = date;
         this.amount = amount;
     }
@@ -42,8 +42,12 @@ public class Income extends Model {
         this.date = date;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
     }
 
     public Double getAmount() {
@@ -54,7 +58,4 @@ public class Income extends Model {
         return date;
     }
 
-    public String getCategory() {
-        return category;
-    }
 }

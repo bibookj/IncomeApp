@@ -12,12 +12,13 @@ import java.util.TimeZone;
 
 @Table(name = "Expenses", database = AppDatabase.class)
 
-public class Expenses extends Model{
+public class Expenses extends Model {
 
-    @PrimaryKey private Long id;
+    @PrimaryKey
+    private Long id;
 
     @Column
-    private String category;
+    private Long category_id;
     @Column
     private Date date;
     @Column
@@ -26,8 +27,8 @@ public class Expenses extends Model{
     public Expenses() {
     }
 
-    public Expenses(String category, Date date, Double amount) {
-        this.category = category;
+    public Expenses(Long category_id, Date date, Double amount) {
+        this.category_id = category_id;
         this.date = date;
         this.amount = amount;
     }
@@ -41,10 +42,6 @@ public class Expenses extends Model{
         this.date = date;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public Double getAmount() {
         return amount;
     }
@@ -53,8 +50,12 @@ public class Expenses extends Model{
         return date;
     }
 
-    public String getCategory() {
-        return category;
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
     }
 
     public Long getId() {

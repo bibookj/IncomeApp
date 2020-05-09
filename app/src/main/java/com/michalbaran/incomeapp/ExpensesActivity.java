@@ -80,7 +80,7 @@ public class ExpensesActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Expenses expenses = new Expenses(category, date1, amount);
+                Expenses expenses = new Expenses(1l, date1, amount);
                 expenses.save();
                 expensesList.add (expenses);
 
