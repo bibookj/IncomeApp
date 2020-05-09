@@ -62,9 +62,13 @@
                 style="@style/whiteTextView"
                 android:text="Category" />
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/editCategory"
-                style="@style/roundedEditText" />
+                style="@style/roundedEditText" />-->
+            <Spinner
+                android:layout_width="match_parent"
+                style="@style/roundedEditText"
+                android:id="@+id/SpinnerCategory"/>
 
             <TextView
                 android:id="@+id/txt"
