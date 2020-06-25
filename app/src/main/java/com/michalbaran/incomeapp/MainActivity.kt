@@ -11,13 +11,11 @@ import androidx.appcompat.widget.Toolbar
 
 import android.view.View
 import android.widget.Button
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal var addTransactiontBtn: Button
-    internal var incomeBtn: Button
-    internal var expensesBtn: Button
-    internal var walletBtn: Button? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,20 +29,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        addTransactiontBtn = findViewById(R.id.btnWallet)
-        addTransactiontBtn.setOnClickListener {
+
+        btnWallet.setOnClickListener {
             val intent = Intent(this@MainActivity, WalletActivity::class.java)
             startActivity(intent)
         }
 
-        incomeBtn = findViewById(R.id.btnIncome)
-        incomeBtn.setOnClickListener {
+        btnIncome.setOnClickListener {
             val intent = Intent(this@MainActivity, IncomeActivity::class.java)
             startActivity(intent)
         }
 
-        expensesBtn = findViewById(R.id.btnExpenses)
-        expensesBtn.setOnClickListener {
+        btnExpenses.setOnClickListener {
             val intent = Intent(this@MainActivity, ExpensesActivity::class.java)
             startActivity(intent)
         }
