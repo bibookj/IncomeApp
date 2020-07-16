@@ -1,5 +1,6 @@
 package com.michalbaran.incomeapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import android.view.View
+import kotlinx.android.synthetic.main.content_income.*
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -22,10 +24,11 @@ import java.util.Date
 
 
 class IncomeActivity : AppCompatActivity() {
-    var incomeList: MutableList<Income>
-    var recyclerView: RecyclerView
-    var incomeViewAdapter: IncomeViewAdapter
-
+    //var incomeList: MutableList<Income>
+    //var recyclerView: RecyclerView
+    //var incomeViewAdapter: IncomeViewAdapter
+    val incomeList: MutableList<Income> = Select.from<Income>(Income::class.java).fetch()
+    var incomeViewAdapter = IncomeViewAdapter(this, incomeList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,22 +45,22 @@ class IncomeActivity : AppCompatActivity() {
         }
 
 
-        incomeList = Select.from<Income>(Income::class.java).fetch()
+        //var incomeList: MutableList<Income> = Select.from<Income>(Income::class.java).fetch()
 
         /*incomeList.add(new Income("Food", Calendar.getInstance().getTime(), 21.5));
         incomeList.add(new Income("Travel", Calendar.getInstance().getTime(), 22.1));
         incomeList.add(new Income("Ship", Calendar.getInstance().getTime(), 2000000.0));*/
 
-        recyclerView = findViewById(R.id.recycler_view)
-        incomeViewAdapter = IncomeViewAdapter(this, incomeList)
-        recyclerView.adapter = incomeViewAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        //var incomeViewAdapter = IncomeViewAdapter(this, incomeList)
+        recycler_view.adapter = incomeViewAdapter
+        recycler_view.layoutManager = LinearLayoutManager(this)
 
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        // check if the request code is same as what is passed  here it is 2
+        // check if the request code is same as what is passed here it is 2
         if (requestCode == ADD_TRANSACTION_REQUEST_CODE) {
 
             if (resultCode == Activity.RESULT_OK) {
@@ -86,7 +89,7 @@ class IncomeActivity : AppCompatActivity() {
 
     companion object {
 
-        internal val ADD_TRANSACTION_REQUEST_CODE = 1
+        internal const val ADD_TRANSACTION_REQUEST_CODE = 1
     }
 
 }

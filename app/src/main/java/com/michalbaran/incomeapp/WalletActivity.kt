@@ -14,12 +14,11 @@ import androidx.appcompat.widget.Toolbar
 
 import android.view.View
 import android.widget.TextView
+import kotlinx.android.synthetic.main.content_wallet.*
 
 class WalletActivity : AppCompatActivity() {
 
-    internal var txtAccountBalance: TextView
-    internal var txtTotalIncome: TextView
-    internal var txtTotalExpenses: TextView
+
     internal var balance: Float? = null
     internal var totalIncome: Float? = null
     internal var totalOutcome: Float? = null
@@ -30,9 +29,7 @@ class WalletActivity : AppCompatActivity() {
         //        Toolbar toolbar = findViewById(R.id.toolbar);
         //        setSupportActionBar(toolbar);
 
-        txtAccountBalance = findViewById(R.id.txtAccountBalance)
-        txtTotalIncome = findViewById(R.id.txtTotalIncome)
-        txtTotalExpenses = findViewById(R.id.txtTotalExpenses)
+
         totalIncome = Select.from<Income>(Income::class.java).sum("amount")
         totalOutcome = Select.from<Expenses>(Expenses::class.java).sum("amount")
         balance = totalIncome!! - totalOutcome!!

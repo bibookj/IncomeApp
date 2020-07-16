@@ -1,5 +1,6 @@
 package com.michalbaran.incomeapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import android.view.View
+import kotlinx.android.synthetic.main.content_expenses.*
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -22,9 +24,11 @@ import java.util.Date
 
 
 class ExpensesActivity : AppCompatActivity() {
-    var expensesList: MutableList<Expenses>
-    var recyclerView: RecyclerView
-    var expensesViewAdapter: ExpensesViewAdapter
+    //var expensesList: MutableList<Expenses>
+    //var recyclerView: RecyclerView
+    //var expensesViewAdapter: ExpensesViewAdapter
+    private val expensesList: MutableList<Expenses> = Select.from<Expenses>(Expenses::class.java).fetch()
+    private val expensesViewAdapter = ExpensesViewAdapter(this, expensesList)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,12 +51,11 @@ class ExpensesActivity : AppCompatActivity() {
         expensesList.add(new Expenses("Cat", Calendar.getInstance().getTime(), 2.50));
         expensesList.add(new Expenses("Food", Calendar.getInstance().getTime(), 17.4));*/
 
-        expensesList = Select.from<Expenses>(Expenses::class.java).fetch()
+        //expensesList = Select.from<Expenses>(Expenses::class.java).fetch()
 
-        recyclerView = findViewById(R.id.expenses_recycler_view)
-        expensesViewAdapter = ExpensesViewAdapter(this, expensesList)
-        recyclerView.adapter = expensesViewAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        //var expensesViewAdapter = ExpensesViewAdapter(this, expensesList)
+        expenses_recycler_view.adapter = expensesViewAdapter
+        expenses_recycler_view.layoutManager = LinearLayoutManager(this)
 
     }
 
